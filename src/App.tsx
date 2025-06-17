@@ -50,7 +50,7 @@ function App() {
       .then(text => {
         const allMatches = parseCSV(text);
         setMatches(allMatches.filter(m => isWithinNext7Days(m.date)));
-        setPastMatches(allMatches.filter(m => isPast(m.date)));
+        setPastMatches(allMatches.filter(m => isPast(m.date)).reverse());
       });
   }, []);
 
