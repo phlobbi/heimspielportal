@@ -59,7 +59,7 @@ function App() {
       <h1 className="text-3xl font-bold text-center mb-8">Heimspiele der nächsten 7 Tage</h1>
       <div className="max-w-2xl mx-auto mb-4">
         <button
-          className="w-full bg-green-300 hover:bg-green-400 text-green-900 font-semibold py-2 px-4 rounded transition"
+          className="w-full bg-green-300 hover:bg-green-400 text-green-900 font-semibold py-2 px-4 rounded transition cursor-pointer"
           onClick={() => setShowPast(v => !v)}
         >
           {showPast ? 'Anstehende Heimspiele anzeigen' : 'Vergangene Heimspiele anzeigen'}
