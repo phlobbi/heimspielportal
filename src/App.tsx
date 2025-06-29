@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './tailwind.css'
+import MatchTile from './components/MatchTile';
 
 interface Match {
   date: string;
@@ -71,29 +72,14 @@ function App() {
           matches.length === 0 ? (
             <div className="text-center text-gray-500">Keine Heimspiele in den nächsten 7 Tagen.</div>
           ) : (
-            matches.map((m, i) => (
-              <div key={i} className="bg-white rounded shadow p-4 flex flex-col md:flex-row md:items-center md:justify-between">
-                <div>
-                  <div className="font-semibold text-lg">{m.home} <span className="text-gray-400">vs.</span> {m.guest}</div>
-                  <div className="text-gray-600">{m.date} um {m.time} Uhr</div>
-                </div>
-              </div>
-            ))
+            matches.map((m, i) => <MatchTile key={i} home={m.home} guest={m.guest} date={m.date} time={m.time} />)
           )
         ) : (
           pastMatches.length === 0 ? (
             <div className="text-center text-gray-500">Keine vergangenen Heimspiele.</div>
           ) : (
             pastMatches.map((m, i) => (
-              <div key={i} className="bg-gray-100 rounded shadow p-4 flex flex-col md:flex-row md:items-center md:justify-between opacity-80">
-                <div>
-                  <div className="font-semibold text-lg">{m.home} <span className="text-gray-400">vs.</span> {m.guest}</div>
-                  <div className="text-gray-600">{m.date} um {m.time} Uhr</div>
-                </div>
-                {m.result && m.result.trim() !== '' && (
-                  <div className="mt-2 md:mt-0 md:ml-4 text-green-700 font-bold">Ergebnis: {m.result}</div>
-                )}
-              </div>
+              <MatchTile key={i} home={m.home} guest={m.guest} date={m.date} time={m.time} result={m.result} />
             ))
           )
         )}
