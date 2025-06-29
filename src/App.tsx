@@ -56,7 +56,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-green-100 py-8 relative">
-      <h1 className="text-3xl font-bold text-center mb-8">Heimspielportal</h1>
+      <img src="/assets/tchb.svg" alt="TC Halberg Brebach Logo" className="w-32 h-20 mx-auto mb-2" />
+      <h1 className="text-3xl font-bold text-center mb-2">Heimspielportal</h1>
       <div className="max-w-2xl mx-auto mb-4">
         <button
           className="w-full bg-green-300 hover:bg-green-400 text-green-900 font-semibold py-2 px-4 rounded transition cursor-pointer"
@@ -65,7 +66,7 @@ function App() {
           {showPast ? 'Anstehende Heimspiele anzeigen' : 'Vergangene Heimspiele anzeigen'}
         </button>
       </div>
-      <div className="max-w-2xl mx-auto space-y-4">
+      <div className="max-w-2xl mx-auto space-y-4 mb-10">
         {!showPast ? (
           matches.length === 0 ? (
             <div className="text-center text-gray-500">Keine Heimspiele in den nächsten 7 Tagen.</div>
@@ -99,7 +100,7 @@ function App() {
       </div>
       <footer className="bg-white rounded-lg shadow-lg m-4 opacity-95 fixed bottom-0 left-0">
         <div className="w-full mx-auto max-w-screen-xl p-4">
-          <span className="text-sm text-gray-500 text-center">© 2025 <a href="https://tc-halberg-brebach.de" className="hover:underline">TC Halberg Brebach</a>. Alle Angaben ohne Gewähr.</span>
+          <span className="text-xs text-gray-500 text-center">© 2025 <a href="https://tc-halberg-brebach.de" className="hover:underline">TC Halberg Brebach</a>. Alle Angaben ohne Gewähr.</span>
         </div>
       </footer>
     </div>
