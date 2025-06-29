@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import './tailwind.css'
-import MatchTile from './components/MatchTile';
+import MatchSection from './components/MatchSection';
 
-interface Match {
+export interface Match {
   date: string;
   time: string;
   home: string;
@@ -69,32 +69,12 @@ function App() {
           {showPast ? 'Anstehende Heimspiele anzeigen' : 'Vergangene Heimspiele anzeigen'}
         </button>
       </div>
-      <div className="max-w-2xl mx-auto space-y-4 mb-10">
-        {!showPast ? (
-          upcomingMatches.length === 0 ? (
-            <div className="text-center text-gray-500">Keine Heimspiele in den nächsten 7 Tagen.</div>
-          ) : (
-            <>
-              <h2 className="text-2xl font-bold text-center">Demnächst</h2>
-              {upcomingMatches.map((m, i) => <MatchTile key={i} home={m.home} guest={m.guest} date={m.date} time={m.time} />)}
-              <h2 className="text-2xl font-bold text-center">In der Zukunft</h2>
-              {futureMatches.map((m, i) => <MatchTile key={i} home={m.home} guest={m.guest} date={m.date} time={m.time} />)}
-            </>
-          )
-        ) : (
-          pastMatches.length === 0 ? (
-            <div className="text-center text-gray-500">Keine vergangenen Heimspiele.</div>
-          ) : (
-            <>
-            <h2 className="text-2xl font-bold text-center">Vergangene Heimspiele</h2>
-            {
-            pastMatches.map((m, i) => (
-              <MatchTile key={i} home={m.home} guest={m.guest} date={m.date} time={m.time} result={m.result} />
-            ))}
-            </>
-          )
-        )}
-      </div>
+      {showPast ? <MatchSection matches={pastMatches} headline="Vergangene Heimspiele" /> : (
+        <>
+          <MatchSection matches={upcomingMatches} headline="In den nächsten 7 Tagen" />
+          <MatchSection matches={futureMatches} headline="In der Zukunft" />
+        </>
+      )}
       <footer className="bg-white rounded-lg shadow-lg m-4 opacity-95 fixed bottom-0 left-0">
         <div className="w-full mx-auto max-w-screen-xl p-4">
           <span className="text-xs text-gray-500 text-center">© 2025 <a href="https://tc-halberg-brebach.de" className="hover:underline">TC Halberg Brebach</a>. Alle Angaben ohne Gewähr.</span>
