@@ -1,54 +1,34 @@
-# React + TypeScript + Vite
+# heimspielportal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A frontend for showing upcoming and recent tennis matches at a local tennis club, written in React.
 
-Currently, two official plugins are available:
+## Motivation
+Previously in our local tennis club, match schedules were shared as static PDFs that quickly became outdated and were only available in print. This made it difficult for members and visitors to stay informed about upcoming games, especially when matches were postponed or cancelled. By providing a dynamic, online portal, we aim to keep everyone up to date, attract more spectators on matchdays, and potentially gain new club members.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+_Just imagine what a bad look it would be, if spectators were to come for a match that had been cancelled..._
 
-## Expanding the ESLint configuration
+My goal is that this project can be used as a starting point to also improve user experience in other clubs.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Get started
+If you want to make this project your own, you can just pull it and run the development server using [Vite](https://vite.dev).
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm run dev 
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+This implementation is specific to our own club.
+I highly encourage you to make it your own by forking it or proposing changes that make customization easier for everyone.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+For deployment, a static web server is sufficient. Just run `npm run build` and copy the `dist` folder to your hosting solution.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+## How do I fill it with data?
+How you get your data to the application is entirely up to you.
+For our purposes, we have a tool that automatically retrieves data from a webservice and saves it locally as a CSV file.
+The CSV file is named `daten.csv` and saves the data in the following format:
+
+```csv
+Datum;Zeit;Heimteam;Gastteam;Ort;Matches;Sätze
+01.01.1970;09:41;Hometeam One;Guestteam One;Homeclub;21:0;20:0
 ```
+
+Again, feel free to modify this behaviour as a fork.
