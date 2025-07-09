@@ -31,7 +31,7 @@ function App() {
   return (
     <div className="min-h-screen bg-green-100 py-8 relative">
       <img src="/assets/tchb.svg" alt="TC Halberg Brebach Logo" className="w-32 h-20 mx-auto mb-2" />
-      <h1 className="text-3xl font-bold text-center mb-2">Heimspielportal</h1>
+      <h1 className="text-3xl font-bold text-center mb-2">Heimspielportal <span className="bg-blue-100 text-blue-800 text-sm px-2.5 py-0.5 rounded-sm">Beta</span></h1>
       <div className="max-w-2xl mx-auto mb-4">
         <button
           className="w-full bg-green-300 hover:bg-green-400 text-green-900 font-semibold py-2 px-4 rounded transition cursor-pointer"
