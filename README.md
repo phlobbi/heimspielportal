@@ -9,17 +9,34 @@ _Just imagine what a bad look it would be, if spectators were to come for a matc
 
 My goal is that this project can be used as a starting point to also improve user experience in other clubs.
 
+## Features
+
+As of now, heimspielportal has the following features:
+
+- Overview over all upcoming and historic home matches of a tennis club
+- Automatic retrieval of data from a CSV-file (`daten.csv`)
+- Filtering for distinct time frames:
+  - Matches in the next 7 days
+  - Future matches (beyond 7 days)
+  - Historic matches
+- Toggle between historic and upcoming matches
+- Responsive, mobile first UI, built with Tailwind CSS
+- Can be adapted for other clubs
+- No backend required: Just build and publish!
+
 ## Get started
 If you want to make this project your own, you can just pull it and run the development server using [Vite](https://vite.dev).
 
 ```bash
+npm install
 npm run dev 
 ```
 
-This implementation is specific to our own club.
-I highly encourage you to make it your own by forking it or proposing changes that make customization easier for everyone.
+For deployment, a static web server is sufficient. Just run `npm run build` and copy the `dist` folder to your preferred hosting solution.
 
-For deployment, a static web server is sufficient. Just run `npm run build` and copy the `dist` folder to your hosting solution.
+> [!NOTE]
+> This implementation is specific to our own club.
+> I highly encourage you to make it your own by forking it or proposing changes that make customization easier for everyone.
 
 ## How do I fill it with data?
 How you get your data to the application is entirely up to you.
